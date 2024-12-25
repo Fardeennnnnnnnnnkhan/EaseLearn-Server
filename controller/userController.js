@@ -18,7 +18,6 @@ export const register = async (req, res) => {
 
         // Generate OTP
         const otp = Math.floor(Math.random() * 100000);  // 5-digit OTP
-        console.log("Generated OTP:", otp);
 
         // Create activation token with user details and OTP
         const activationToken = jwt.sign(
@@ -35,7 +34,6 @@ export const register = async (req, res) => {
 
         try {
             await sendMail(email, "E-Learning OTP Verification", data);
-            console.log(`OTP email sent to ${email}`);
         } catch (emailErr) {
             console.error("Error sending email:", emailErr);
             return res.status(500).json({ message: "Error sending email" });

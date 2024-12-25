@@ -2,8 +2,6 @@ import { createTransport } from 'nodemailer';
 
 const sendMail = async (email, subject, data) => {
     try {
-        
-
         const transport = createTransport({
             host: "smtp.gmail.com", // Correct host for Gmail
             port: 465,
@@ -68,8 +66,7 @@ const sendMail = async (email, subject, data) => {
             subject: subject,
             html: html
         });
-        
-        console.log("Email sent successfully");
+       
     } catch (error) {
         console.error("Error sending email:", error);
     }
